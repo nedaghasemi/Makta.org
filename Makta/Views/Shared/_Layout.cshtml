@@ -160,7 +160,8 @@
                 data: { email: email },
                 dataType: "text",
                 success: function (msg) {
-                    $('#lblresult').html(msg);
+                    var res = msg.replace(/"|'/g, '');
+                    $('#lblresult').html(res);
                 },
                 error: function (req, status, error) {
                     $('#lblresult').html(error);

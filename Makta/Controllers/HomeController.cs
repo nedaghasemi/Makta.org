@@ -1,4 +1,5 @@
-﻿using Makta.Models;
+﻿using Common;
+using Makta.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Services.Email;
@@ -53,8 +54,11 @@ namespace Makta.Controllers
         {
             try
             {
+                if(!Validators.IsValidEmail(email))
+                    return new JsonResult("Please enter a valid email address.");
+
                 _emailSender.SendNewSubscribe(email);
-                return new JsonResult("saved");
+                return new JsonResult("You are in! Thanks for being a part of Makta community.");
             }
             catch(Exception ex)
             {
