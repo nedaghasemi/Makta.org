@@ -1708,7 +1708,7 @@ section {
   outline: none;
 }
 
-.footer .footer-content .footer-newsletter form input[type=submit] {
+.footer .footer-content .footer-newsletter form input[type=button] {
   position: absolute;
   top: 0;
   right: -2px;
@@ -1723,7 +1723,7 @@ section {
   border-radius: 0 4px 4px 0;
 }
 
-.footer .footer-content .footer-newsletter form input[type=submit]:hover {
+.footer .footer-content .footer-newsletter form input[type=button]:hover {
   background: rgba(var(--color-primary-rgb), 0.85);
 }
 

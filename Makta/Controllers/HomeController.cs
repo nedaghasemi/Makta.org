@@ -65,5 +65,10 @@ namespace Makta.Controllers
                 return new JsonResult(ex.Message);
             }
         }
+
+        public IActionResult joinus()
+        {
+            return View();
+        }
     }
 }
