@@ -1,6 +1,7 @@
 ﻿using Makta.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Services.Email;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -11,11 +12,11 @@ namespace Makta.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly IEmailSender _emailSender;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IEmailSender emailSender)
         {
-            _logger = logger;
+            _emailSender = emailSender;
         }
 
         public IActionResult Index()
@@ -40,6 +41,25 @@ namespace Makta.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        public IActionResult Index2()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Subscribe(string email)
+        {
+            try
+            {
+                _emailSender.SendNewSubscribe(email);
+                return new JsonResult("saved");
+            }
+            catch(Exception ex)
+            {
+                return new JsonResult(ex.Message);
+            }
         }
     }
 }

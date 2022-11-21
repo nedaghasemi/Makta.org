@@ -1,9 +1,11 @@
+using Common;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Services.Email;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,9 +15,13 @@ namespace Makta
 {
     public class Startup
     {
+        private readonly SiteSettings _siteSetting;
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            _siteSetting = configuration.GetSection(nameof(SiteSettings)).Get<SiteSettings>();
+            WebSiteSetting.Common = _siteSetting.CommonSetting;
         }
 
         public IConfiguration Configuration { get; }
@@ -24,6 +30,12 @@ namespace Makta
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddSingleton(_siteSetting.EmailSettings);
+
+            services.AddSingleton(_siteSetting.CommonSetting);
+
+            services.AddTransient<IEmailSender, EmailSender>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

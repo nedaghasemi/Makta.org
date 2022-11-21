@@ -51,12 +51,10 @@
             <nav id="navbar" class="navbar">
                 <ul>
                     <li><a class="nav-link scrollto" href="~/home/Index">Home</a></li>
-                    <li><a class="nav-link scrollto" href="" target="_blank">Explorer</a></li>
-                    <li><a class="nav-link scrollto" href="">Technology</a></li>
-                    <li><a class="nav-link scrollto" href="">Community</a></li>
-                    <li><a class="nav-link scrollto" href="~/Home/Blog">Blog</a></li>
-                 
-
+                    <li><a class="nav-link scrollto" href="https://makta.net" target="_blank">Explorer</a></li>
+                    <li><a class="nav-link scrollto" href="https://makta.org/whitepaper_makta.pdf">Technology</a></li>
+                    <li><a class="nav-link scrollto" href="https://github.com/makta-org" target="_blank">Source Code</a></li>
+                    <li><a class="nav-link scrollto" href="https://talk.makta.net/" target="_blank">Community</a></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle d-none"></i>
             </nav><!-- .navbar -->
@@ -83,33 +81,27 @@
                     <div class="col-lg-2 col-md-6 footer-links">
                         <h4>Technology</h4>
                         <ul>
-                            <li><i class="bi bi-chevron-right"></i> <a href="#">White Paper</a></li>
-                            <li><i class="bi bi-chevron-right"></i> <a href="#">Documentaion</a></li>
-                            <li><i class="bi bi-chevron-right"></i> <a href="#">Road Map</a></li>
-                            <li><i class="bi bi-chevron-right"></i> <a href="#">For Developers</a></li>
-
+                            <li><i class="bi bi-chevron-right"></i> <a href="https://makta.org/whitepaper_makta.pdf">White Paper</a></li>
+                            <li><i class="bi bi-chevron-right"></i> <a href="https://makta.net" target="_blank">Explorer</a></li>
                         </ul>
                     </div>
 
                     <div class="col-lg-3 col-md-6 footer-links">
                         <h4>Community</h4>
                         <ul>
-                            <li><i class="bi bi-chevron-right"></i> <a href="#">Blog</a></li>
-                            <li><i class="bi bi-chevron-right"></i> <a href="#">Forum</a></li>
-                            <li><i class="bi bi-chevron-right"></i> <a href="#">Careers</a></li>
-                            <li><i class="bi bi-chevron-right"></i> <a href="mailto:connect@Makta.org"><strong>Email:</strong> connect@Makta.org</a></li>
-
-
+                            <li><i class="bi bi-chevron-right"></i> <a href="https://talk.makta.net/" target="_blank">Forum</a></li>
+                            <li><i class="bi bi-chevron-right"></i> <a href="mailto:community@makta.org"><strong>Email:</strong> community@makta.org</a></li>
                         </ul>
                     </div>
 
                     <div class="col-lg-4 col-md-6 footer-newsletter">
-                        <h4>Our Newsletter</h4>
-                        <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+                        <h4>Makta Newsletter</h4>
+                        <p>Be the first one who gets notified about events, releases, and more!</p>
                         <form action="" method="post">
-                            <input type="email" name="email"><input type="submit" value="Subscribe">
-                        </form>
+                            <input type="email" name="email" id="email"><input type="button" onclick="Subscribe();return false;" value="Subscribe">
+                            <label name="lblresult" id="lblresult" style="color:black"></label>
 
+                        </form>
                     </div>
 
                 </div>
@@ -121,17 +113,19 @@
 
                 <div class="d-flex flex-column align-items-center align-items-lg-start">
                     <div class="copyright">
-                        &copy; <strong><span>Makta</span></strong>. All Rights Reserved
+                        &copy; <strong><span>Makta</span></strong>. All Rights Reserved for Makta community.
                     </div>
 
                 </div>
 
                 <div class="social-links order-first order-lg-last mb-3 mb-lg-0">
-                    <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-                    <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-                    <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-                    <a href="#" class="google-plus"><i class="bi bi-skype"></i></a>
-                    <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+                    <a target="_blank" href="https://twitter.com/makta_org" class="twitter"><i class="bi bi-twitter"></i></a>
+                    <a target="_blank" href="https://www.linkedin.com/in/makta/" class="linkedin"><i class="bi bi-linkedin"></i></a>
+                    <a target="_blank" href="https://t.me/+pCbsfL72sxowNjgx" class="telegram"><i class="bi bi-telegram"></i></a>
+                    <a target="_blank" href="instagram" class="instagram"><i class="bi bi-instagram"></i></a>
+                    <a target="_blank" href="discord" class="discord"><i class="bi bi-discord"></i></a>
+                    <a target="_blank" href="https://github.com/makta-org" class="github"><i class="bi bi-github"></i></a>
+
                 </div>
 
             </div>
@@ -144,12 +138,36 @@
     <div id="preloader"></div>
 
     <!-- Vendor JS Files -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="~/assets/vendor/aos/aos.js"></script>
     <script src="~/assets/vendor/glightbox/js/glightbox.min.js"></script>
     <script src="~/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
     <script src="~/assets/vendor/swiper/swiper-bundle.min.js"></script>
     <script src="~/assets/vendor/php-email-form/validate.js"></script>
+
+    <script>
+        function Subscribe() {
+            var email = $('#email').val();
+            if (email === "") {
+                $("#lblresult").val("please enter your email.");
+                return;
+            }
+
+            $.ajax({
+                type: "POST",
+                url: "@Url.Action("Subscribe","home")",
+                data: { email: email },
+                dataType: "text",
+                success: function (msg) {
+                    $('#lblresult').html(msg);
+                },
+                error: function (req, status, error) {
+                    $('#lblresult').html(error);
+                }
+            });
+        }
+    </script>
 
     <!-- Template Main JS File -->
     <script src="~/assets/js/main.js"></script>
