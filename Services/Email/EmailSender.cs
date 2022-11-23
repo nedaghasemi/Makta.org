@@ -134,5 +134,37 @@ namespace Services.Email
         {
             File.AppendAllText(BaseFullLogPath + "\\Emaillog.txt", DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss") + " - " + logMessage + Environment.NewLine);
         }
+
+        public async Task SendEmailtoAdmin(string body)
+        {
+            try
+            {
+                MailboxAddress from = new MailboxAddress(_emailSettings.FromName, _emailSettings.FromEmail);
+
+                string subject = "New Makta Contributer";
+
+                MailboxAddress to1 = new MailboxAddress(_commonSettings.ProductName + " Community", _commonSettings.AdminEmail);
+
+                List<MailboxAddress> toAddresses = new List<MailboxAddress>
+                {
+                    to1
+                };
+
+                string bodyText = "";
+                bodyText += "Dear <b>Makta Admin</b>,";
+                bodyText += $"<br>You have a new community member request at :{DateTime.Now.ToString("yyyy-MM-dd hh:mm tt")}";
+                bodyText += $"<br>Info: <b>{body}</b>";
+                bodyText += $"<br><br>{_commonSettings.ProductName} Auto e-Mailing System";
+
+                EmailMessage message = new EmailMessage(from, toAddresses, subject, bodyText);
+
+                await SendEmail(_emailSettings, message);
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

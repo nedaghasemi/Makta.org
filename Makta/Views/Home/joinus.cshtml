@@ -1,7 +1,7 @@
 ﻿<link href="~/assets/css/joinus.css" rel="stylesheet" />
 
 <main id="main">
-    <section id="faq" class="faq">
+    <section id="joinus" class="joinus">
         <div class="content">
             <div>
                 <h4>Thank you for your interest in joining Makta community.</h4>
@@ -14,72 +14,159 @@
             </div>
         </div>
 
-        <form action="" method="post">
-            <div class="row">
-                <div class="col-4">
-                    Name:
+        <div class="form">
+            <form action="" method="post">
+                <div class="row">
+                    <div class="col-4">
+                        Name:
+                    </div>
+                    <div class="col-8">
+                        <input type="text" id="joinusname" name="joinusname" />
+                    </div>
                 </div>
-                <div class="col-8">
-                    <input type="text" id="name" name="name" />
-                </div>
-            </div>
 
-            <div class="row">
-                <div class="col-4">
-                    E-mail:
+                <div class="row">
+                    <div class="col-4">
+                        E-mail:
+                    </div>
+                    <div class="col-8">
+                        <input type="email" name="joinusemail" id="joinusemail">
+                    </div>
                 </div>
-                <div class="col-8">
-                    <input type="email" name="email" id="email">
-                </div>
-            </div>
 
-            <div class="row">
-                <div class="col-4">
-                    Phone:
-              </div>
-                <div class="col-8">
-                    <input type="text" name="phone" id="phone">
+                <div class="row">
+                    <div class="col-4">
+                        Phone:
+                    </div>
+                    <div class="col-8">
+                        <input type="text" name="joinusphone" id="joinusphone">
+                    </div>
                 </div>
-            </div>
 
-            <div class="row">
-                <div class="col-4">
-                    Country and Time Zone:
+                <div class="row">
+                    <div class="col-4">
+                        Country:
+                    </div>
+                    <div class="col-8">
+                        <select name="joinuscountry" id="joinuscountry">
+                            <option value="Canada">Canada</option>
+                            <option value="UK">UK</option>
+                            <option value="USA">USA</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="col-8">
-                </div>
-            </div>
 
-            <div class="row">
-                <div class="col-4">
-                    Role:
+                <div class="row">
+                    <div class="col-4">
+                        Role:
+                    </div>
+                    <div class="col-8">
+                        <select name="joinusrole" id="joinusrole">
+                            <option value="softwaredeveloper">Software Developer</option>
+                            <option value="Designer">Designer</option>
+                            <option value="UI/UX">UI/UX</option>
+                            <option value="SoftwareQA&Tester">Software QA & Tester</option>
+                            <option value="ProjectManager">Project Manager</option>
+                            <option value="ScrumMaster">Scrum Master</option>
+                            <option value="DigitalMarketing">Digital Marketing</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="col-8">
-                    <select name="role" id="role">
-                        <option value="softwaredeveloper">Software Developer</option>
-                        <option value="Designer">Designer</option>
-                        <option value="UI/UX">UI/UX</option>
-                        <option value="SoftwareQA&Tester">Software QA & Tester</option>
-                        <option value="ProjectManager">Project Manager</option>
-                        <option value="ScrumMaster">Scrum Master</option>
-                        <option value="DigitalMarketing">Digital Marketing</option>
-                        <option value="Other">Other</option>
-                    </select>
-                </div>
-            </div>
 
-            <div class="row">
-                <div class="col">
-                    <input type="checkbox" id="terms" name="terms" value="I accept Makta community's terms and conditions." />
+                <div class="row">
+                    <div class="col">
+                        <input type="checkbox" id="joinusterms" name="joinusterms" />
+                        <label for="joinusterms">I accept Makta community's terms and conditions.</label>
+                    </div>
                 </div>
-            </div>
 
-            <div class="row">
-                <div class="col">
-                    <input type="button" onclick="Subscribe();return false;" value="Subscribe">
+                <div class="row">
+                    <div class="col">
+                        <input type="button" onclick="SubmitJoinUsForm();return false;" value="Submit">
+                        <label name="lbljoinusresult" id="lbljoinusresult" style="color:white"></label>
+                    </div>
                 </div>
-            </div>
-        </form>
+
+            </form>
+
+        </div>
 
     </section>
 </main>
+
+@section Scripts
+    {
+    <script>
+        function SubmitJoinUsForm() {
+            var name = $('#joinusname').val();
+            var email = $('#joinusemail').val();
+            var phone = $('#joinusphone').val();
+            var country = $('#joinuscountry').val();
+            var role = $('#joinusrole').val();
+            var terms = false;
+
+            if (name === "") {
+                $("#lbljoinusresult").html("please enter your name.");
+                return;
+            }
+
+            if (email === "") {
+                $("#lbljoinusresult").html("please enter your email.");
+                return;
+            }
+
+            if (phone === "") {
+                $("#lbljoinusresult").html("please enter your phone.");
+                return;
+            }
+
+            if ($('#joinusterms').is(":checked")) {
+                terms = true;
+            }
+            else {
+                $("#lbljoinusresult").html("please accept community terms and conditions.");
+                return;
+            }
+
+            var data = JSON.stringify({ name: name, email: email, phone: phone, terms: terms, country: country, role: role });
+
+            $.ajax({
+                type: "POST",
+                url: "@Url.Action("submitjoinus","home")",
+                data: { data: data },
+                dataType: "text",
+                success: function (msg) {
+                    var res = JSON.parse(msg);
+                    //var res = msg.replace(/"|'/g, '');
+                    if (res.isSucceed) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Request sent!',
+                            html: res.description,
+                            confirmButtonText: res.buttonText,
+                            showCloseButton: false
+                        });
+                        $('#joinusname').val('');
+                        $('#joinusemail').val('');
+                        $('#joinusphone').val('');
+                        $('#joinuscountry').val('Canada');
+                        $('#joinusrole').val('softwaredeveloper');
+                        $("#joinusterms").prop("checked", false);
+                    }
+                    else
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oh wait...',
+                            html: res.description,
+                            confirmButtonText: res.buttonText,
+                            showCloseButton: false
+                        });
+                },
+                error: function (req, status, error) {
+                    $('#lbljoinusresult').html(error);
+                }
+            });
+        }
+    </script>
+}

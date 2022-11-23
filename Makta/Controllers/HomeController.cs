@@ -2,6 +2,7 @@
 using Makta.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using Services.Email;
 using System;
 using System.Collections.Generic;
@@ -24,17 +25,18 @@ namespace Makta.Controllers
         {
             return View();
         }
-      
+
         public IActionResult Privacy()
         {
             return View();
         }
 
-        public IActionResult  Blog()
-            {
+        public IActionResult Blog()
+        {
             return View();
-        }  public IActionResult  BlogDetails()
-            {
+        }
+        public IActionResult BlogDetails()
+        {
             return View();
         }
 
@@ -54,13 +56,13 @@ namespace Makta.Controllers
         {
             try
             {
-                if(!Validators.IsValidEmail(email))
+                if (!Validators.IsValidEmail(email))
                     return new JsonResult("Please enter a valid email address.");
 
                 _emailSender.SendNewSubscribe(email);
                 return new JsonResult("You are in! Thanks for being a part of Makta community.");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return new JsonResult(ex.Message);
             }
@@ -69,6 +71,30 @@ namespace Makta.Controllers
         public IActionResult joinus()
         {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult submitjoinus(string data)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(data))
+                    return new JsonResult(new ReturnClass { Description = "Please fill the form and try again.", IsSucceed = false, ButtonText = "Got it!" });
+
+                var model = JsonConvert.DeserializeObject<JoinUsDto>(data);
+                if (model == null)
+                    return new JsonResult(new ReturnClass { Description = "something went wrong, please try again later.", IsSucceed = false, ButtonText = "Sure!" });
+
+                if (!Validators.IsValidEmail(model.Email))
+                    return new JsonResult(new ReturnClass { Description = "Please enter a valid email address.", IsSucceed = false, ButtonText = "ok let me check!" });
+
+                _emailSender.SendEmailtoAdmin(data);
+                return new JsonResult(new ReturnClass { Description = "Thanks for being a part of Makta community. A community member will process your request and will contact you no more than 2 business days.", IsSucceed = true, ButtonText = "Cool, thanks!" });
+            }
+            catch (Exception ex)
+            {
+                return new JsonResult(ex.Message);
+            }
         }
     }
 }

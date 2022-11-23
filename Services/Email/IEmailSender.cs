@@ -8,5 +8,6 @@ namespace Services.Email
         Task SendEmail(EmailSetting email, EmailMessage message);
         Task SendNewSubscribe(string email);
         Task LogSystem(string logDescription);
+        Task SendEmailtoAdmin(string body);
     }
 }
