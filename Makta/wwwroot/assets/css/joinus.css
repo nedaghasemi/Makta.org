@@ -1,0 +1,23 @@
+.faq {
+    padding-top: 60pt;
+    padding-left:25pt;
+ }
+
+
+.faq .content h3 {
+  font-weight: 400;
+  font-size: 34px;
+  color: var(--color-secondary);
+}
+
+.faq .content h4 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 5px;
+    color: var(--color-secondary);
+}
+
+.faq .content p {
+  font-size: 16px;
+  color: var(--color-gray);
+}

@@ -1,37 +1,85 @@
-﻿<main id="main">
-    <section id="golden-joinus">
-        <div>
+﻿<link href="~/assets/css/joinus.css" rel="stylesheet" />
+
+<main id="main">
+    <section id="faq" class="faq">
+        <div class="content">
             <div>
-
-                <h2>Thank you for your interest in joining Makta community.</h2>
-                <p style="color:white;">
-                    Please fill the form below to gain your access by a community member.
+                <h4>Thank you for your interest in joining Makta community.</h4>
+                <p> in Makta, we need software developers like you to contribute to the free speech platform.</p>
+                <p> software developers, designers, content builders, social networkers, digital marketers, project managers, etc. everyone is welcome!</p>
+                <p>
+                    Please fill the form below to get your access granted by a community member.
                 </p>
+                <p>* if you know someone from community, please mention their name to connect you directly to them.</p>
+            </div>
+        </div>
 
+        <form action="" method="post">
+            <div class="row">
+                <div class="col-4">
+                    Name:
+                </div>
+                <div class="col-8">
+                    <input type="text" id="name" name="name" />
+                </div>
             </div>
 
-        </div>
+            <div class="row">
+                <div class="col-4">
+                    E-mail:
+                </div>
+                <div class="col-8">
+                    <input type="email" name="email" id="email">
+                </div>
+            </div>
 
-        <div>
-            <form action="" method="post">
-                <input type="text" id="name" name="name" />
-                <input type="email" name="email" id="email">
-                <input type="text" name="phone" id="phone">
-                <select name="role" id="role">
-                    <option value="softwaredeveloper">Software Developer</option>
-                    <option value="Designer">Designer</option>
-                    <option value="UI/UX">UI/UX</option>
-                    <option value="SoftwareQA&Tester">Software QA & Tester</option>
-                    <option value="ProjectManager">Project Manager</option>
-                    <option value="ScrumMaster">Scrum Master</option>
-                    <option value="DigitalMarketing">Digital Marketing</option>
-                    <option value="Other">Other</option>
-                </select>
-                <input type="button" onclick="Subscribe();return false;" value="Subscribe">
-                <label name="lblresult" id="lblresult" style="color:black"></label>
+            <div class="row">
+                <div class="col-4">
+                    Phone:
+              </div>
+                <div class="col-8">
+                    <input type="text" name="phone" id="phone">
+                </div>
+            </div>
 
-            </form>
+            <div class="row">
+                <div class="col-4">
+                    Country and Time Zone:
+                </div>
+                <div class="col-8">
+                </div>
+            </div>
 
-        </div>
+            <div class="row">
+                <div class="col-4">
+                    Role:
+                </div>
+                <div class="col-8">
+                    <select name="role" id="role">
+                        <option value="softwaredeveloper">Software Developer</option>
+                        <option value="Designer">Designer</option>
+                        <option value="UI/UX">UI/UX</option>
+                        <option value="SoftwareQA&Tester">Software QA & Tester</option>
+                        <option value="ProjectManager">Project Manager</option>
+                        <option value="ScrumMaster">Scrum Master</option>
+                        <option value="DigitalMarketing">Digital Marketing</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <input type="checkbox" id="terms" name="terms" value="I accept Makta community's terms and conditions." />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <input type="button" onclick="Subscribe();return false;" value="Subscribe">
+                </div>
+            </div>
+        </form>
+
     </section>
 </main>
