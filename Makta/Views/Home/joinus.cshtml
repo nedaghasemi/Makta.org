@@ -1,7 +1,7 @@
 ﻿<link href="~/assets/css/joinus.css" rel="stylesheet" />
 
 <main id="main">
-    <section id="joinus" class="joinus">
+    @*<section id="joinus" class="joinus">
         <div class="content">
             <div>
                 <h4>Thank you for your interest in joining Makta community.</h4>
@@ -92,7 +92,7 @@
 
         </div>
 
-    </section>
+    </section>*@
 
 <section id="joinus" class="joinus">
       <div class="container">
@@ -124,41 +124,40 @@
 
           </div>
 
-          <div class="col-lg-7">
+          <div class="col-lg-6">
             <form action="" method="post" role="form" class="submit-form">
               <div class="row">
 
-                <div class="col-md-6 form-group">
+                <div class="form-group">
                     <p>Name:</p>
-                  <input  type="text" id="joinusname" name="joinusname" class="form-control" placeholder="Your Name" required>
+                  <input  type="text" id="joinusname" name="joinusname" class="form-control" placeholder="ex: Makta" required>
                   
                 </div>
                 </div>
                 <div class="row">
-                <div class="col-md-6 form-group mt-3 mt-md-0">
+                <div class="form-group mt-3 mt-md-0">
                     <p>E-mail:</p>
-                  <input type="email" class="form-control" name="joinusemail" id="joinusemail" placeholder="ex:youremail@gmail.com" required>
+                  <input type="email" class="form-control" name="joinusemail" id="joinusemail" placeholder="ex: youremail@makta.com" required>
                 </div>
               </div>
 
               <div class="row">
-              <div class="col-md-6 form-group">
+              <div class="form-group">
                   <p>Phone:</p>
-                <input type="text" class="form-control" name="joinusphon" id="joinusphone" placeholder="ex:" required>
+                <input type="text" class="form-control" name="joinusphon" id="joinusphone" placeholder="ex: 2261236789" required>
               </div>
               </div>
 
               <div class="row">
-              <div class="col-md-7 form-group mt-3 mt-md-0">
+              <div class="col-md-6 form-group mt-3 mt-md-0">
                   <p>Country:</p>
-                        <select name="country" id="country" class="flag-text"></select>
+                  <select name="country" id="country" class="flag-text"></select>
               </div>
-              </div>
-
-              <div class="row">
-                  <p>Role:</p> 
+              
                    
-                    <div class="col-7">
+                   
+                    <div class="col-md-6  form-group mt-3 mt-md-0">
+                        <p>Role:</p>
                         <select name="joinusrole" id="joinusrole">
                             <option value="softwaredeveloper">Software Developer</option>
                             <option value="Designer">Designer</option>
@@ -177,7 +176,7 @@
                 <div class="error-message"></div>
                 <div class="sent-message">Your message has been sent. Thank you!</div>
               </div>
-              <div class="text-center"><button type="submit">Submit</button></div>
+              <div class=""><button type="submit">Submit</button></div>
             </form>
           </div><!-- End joinus Form -->
 
