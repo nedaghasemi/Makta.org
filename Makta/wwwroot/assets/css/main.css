@@ -1755,32 +1755,38 @@ section {
         padding-left: 10px;
         width: 100%;
     }
-
-@-webkit-keyframes animate-loading {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
+.select2-container .select2-selection--single {
+    height: 36px;
+    font: 16px arial;
+    padding-top:3px;
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 36px;
 }
 
-@keyframes animate-loading {
-    0% {
-        transform: rotate(0deg);
+    @-webkit-keyframes animate-loading {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
     }
 
-    100% {
-        transform: rotate(360deg);
+    @keyframes animate-loading {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
     }
-}
-
-
-/*--------------------------------------------------------------
+    /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
-.footer {
+    .footer {
   color: var(--color-white);
   font-size: 14px;
 }

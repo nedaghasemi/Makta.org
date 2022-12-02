@@ -174,9 +174,23 @@
               <div class="my-3">
                 <div class="loading">Loading</div>
                 <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
+                @*<div class="sent-message">Your message has been sent. Thank you!</div>*@
               </div>
               <div class=""><button type="submit">Submit</button></div>
+
+              <div class="row">
+                    <div class="col">
+                        <input type="checkbox" id="joinusterms" name="joinusterms" />
+                        <label for="joinusterms">I accept Makta community's terms and conditions.</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <input type="button" onclick="SubmitJoinUsForm();return false;" value="Submit">
+                        <label name="lbljoinusresult" id="lbljoinusresult" style="color:white"></label>
+                    </div>
+                </div>
             </form>
           </div><!-- End joinus Form -->
 

@@ -267,6 +267,10 @@
             data: isoCountries
         });
 
-
+        $("[name='joinusrole']").select2({
+            placeholder: "Select a role",
+            
+            
+        });
     });
 })(jQuery);            
