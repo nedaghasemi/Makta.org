@@ -1,99 +1,6 @@
 ﻿<link href="~/assets/css/joinus.css" rel="stylesheet" />
 
 <main id="main">
-    @*<section id="joinus" class="joinus">
-    <div class="content">
-    <div>
-    <h4>Thank you for your interest in joining Makta community.</h4>
-    <p> in Makta, we need software developers like you to contribute to the free speech platform.</p>
-    <p> software developers, designers, content builders, social networkers, digital marketers, project managers, etc. everyone is welcome!</p>
-    <p>
-    Please fill the form below to get your access granted by a community member.
-    </p>
-    <p>* if you know someone from community, please mention their name to connect you directly to them.</p>
-    </div>
-    </div>
-
-    <div class="form">
-    <form action="" method="post">
-    <div class="row">
-    <div class="col-4">
-    Name:
-    </div>
-    <div class="col-8">
-    <input type="text" id="joinusname" name="joinusname" />
-    </div>
-    </div>
-
-    <div class="row">
-    <div class="col-4">
-    E-mail:
-    </div>
-    <div class="col-8">
-    <input type="email" name="joinusemail" id="joinusemail">
-    </div>
-    </div>
-
-    <div class="row">
-    <div class="col-4">
-    Phone:
-    </div>
-    <div class="col-8">
-    <input type="text" name="joinusphone" id="joinusphone">
-    </div>
-    </div>
-
-    <div class="row">
-    <div class="col-4">
-    Country:
-    </div>
-    <div class="col-8">
-    <select name="joinuscountry" id="joinuscountry">
-    <option value="Canada">Canada</option>
-    <option value="UK">UK</option>
-    <option value="USA">USA</option>
-    </select>
-    </div>
-    </div>
-
-    <div class="row">
-    <div class="col-4">
-    Role:
-    </div>
-    <div class="col-8">
-    <select name="joinusrole" id="joinusrole">
-    <option value="softwaredeveloper">Software Developer</option>
-    <option value="Designer">Designer</option>
-    <option value="UI/UX">UI/UX</option>
-    <option value="SoftwareQA&Tester">Software QA & Tester</option>
-    <option value="ProjectManager">Project Manager</option>
-    <option value="ScrumMaster">Scrum Master</option>
-    <option value="DigitalMarketing">Digital Marketing</option>
-    <option value="Other">Other</option>
-    </select>
-    </div>
-    </div>
-
-    <div class="row">
-    <div class="col">
-    <input type="checkbox" id="joinusterms" name="joinusterms" />
-    <label for="joinusterms">I accept Makta community's terms and conditions.</label>
-    </div>
-    </div>
-
-    <div class="row">
-    <div class="col">
-    <input type="button" onclick="SubmitJoinUsForm();return false;" value="Submit">
-    <label name="lbljoinusresult" id="lbljoinusresult" style="color:white"></label>
-    </div>
-    </div>
-
-    </form>
-
-    </div>
-
-    </section>*@
-
     <section id="joinus" class="joinus">
         <div class="container">
             <div class="boxing">
@@ -118,7 +25,7 @@
                                 <div>
                                     <p>* If you know someone from community, please mention their name to connect you directly to them.</p>
                                 </div>
-                            </div><!-- End Info Item -->
+                            </div>
 
                         </div>
 
@@ -129,21 +36,21 @@
                             <div class="row">
 
                                 <div class="form-group">
-                                    <p>Name:</p>
+                                    <p>Name: <span class="required">*</span></p>
                                     <input type="text" id="joinusname" name="joinusname" class="form-control" placeholder="ex: Makta" required>
 
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="form-group mt-3 mt-md-0">
-                                    <p>E-mail:</p>
+                                    <p>E-mail: <span class="required">*</span></p>
                                     <input type="email" class="form-control" name="joinusemail" id="joinusemail" placeholder="ex: youremail@makta.com" required>
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="form-group">
-                                    <p>Phone:</p>
+                                    <p>Phone: <span class="required">*</span></p>
                                     <input type="text" class="form-control" name="joinusphon" id="joinusphone" placeholder="ex: 2261236789" required>
                                 </div>
                             </div>
@@ -151,7 +58,9 @@
                             <div class="row">
                                 <div class="col-md-6 form-group mt-3 mt-md-0">
                                     <p>Country:</p>
-                                    <select name="country" id="country" class="flag-text"></select>
+                                    <select name="country" id="country" class="flag-text">
+                                        <option value="NA" disabled selected>Select your country</option>
+                                    </select>
                                 </div>
 
 
@@ -159,6 +68,7 @@
                                 <div class="col-md-6  form-group mt-3 mt-md-0">
                                     <p>Role:</p>
                                     <select name="joinusrole" id="joinusrole">
+                                        <option value="NA" disabled selected>Select your role</option>
                                         <option value="softwaredeveloper">Software Developer</option>
                                         <option value="Designer">Designer</option>
                                         <option value="UI/UX">UI/UX</option>
@@ -178,12 +88,6 @@
                                 </div>
                             </div>
 
-                            <div class="my-3">
-                                <div class="loading">Loading</div>
-                                <div class="error-message"></div>
-                                @*<div class="sent-message">Your message has been sent. Thank you!</div>*@
-                            </div>
-
                             <div class="row">
                                 <div class="col">
                                     <input type="checkbox" id="joinusterms" name="joinusterms" />
@@ -197,11 +101,11 @@
                             <div class="row">
                                 <div class="col">
                                     <button type="submit" onclick="SubmitJoinUsForm();return false;">Submit</button>
-                                    <label name="lbljoinusresult" id="lbljoinusresult" style="color:white"></label>
+                                    &nbsp;<label name="lbljoinusresult" id="lbljoinusresult" class="required"></label>
                                 </div>
                             </div>
                         </form>
-                    </div><!-- End joinus Form -->
+                    </div>
 
                 </div>
 
@@ -225,17 +129,17 @@
             var referral = $('#joinusreferral').val();
 
             if (name === "") {
-                $("#lbljoinusresult").html("please enter your name.");
+                $("#lbljoinusresult").html("* Please enter your name.");
                 return;
             }
 
             if (email === "") {
-                $("#lbljoinusresult").html("please enter your email.");
+                $("#lbljoinusresult").html("* Please enter your email.");
                 return;
             }
 
             if (phone === "") {
-                $("#lbljoinusresult").html("please enter your phone.");
+                $("#lbljoinusresult").html("* Please enter your phone.");
                 return;
             }
 
@@ -243,7 +147,7 @@
                 terms = true;
             }
             else {
-                $("#lbljoinusresult").html("please accept community terms and conditions.");
+                $("#lbljoinusresult").html("* Please accept community terms and conditions.");
                 return;
             }
 
@@ -268,8 +172,10 @@
                         $('#joinusname').val('');
                         $('#joinusemail').val('');
                         $('#joinusphone').val('');
-                        $('#country').val('Canada');
-                        $('#joinusrole').val('softwaredeveloper');
+                        $('#country').val('NA');
+                        $("#country").val("NA").change();
+                        $('#joinusrole').val('NA');
+                        $("#joinusrole").val("NA").change();
                         $("#joinusterms").prop("checked", false);
                         $('#lbljoinusresult').html('');
                         $('#joinusreferral').val('');
