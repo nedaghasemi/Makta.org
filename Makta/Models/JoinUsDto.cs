@@ -8,6 +8,6 @@
         public string Country { get; set; }
         public string Role { get; set; }
         public string Terms { get; set; }
-
+        public string Referral { get; set; }
     }
 }
