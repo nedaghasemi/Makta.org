@@ -1,7 +1,7 @@
 ﻿<link href="~/assets/css/joinus.css" rel="stylesheet" />
 
 <main id="main">
-    <section id="joinus" class="joinus">
+    @*<section id="joinus" class="joinus">
         <div class="content">
             <div>
                 <h4>Thank you for your interest in joining Makta community.</h4>
@@ -92,7 +92,114 @@
 
         </div>
 
+    </section>*@
+
+<section id="joinus" class="joinus">
+      <div class="container">
+          <div class="boxing">
+        <div class="section-header">
+          <h2>Join Us</h2>
+          <p>Thank you for your interest in joining Makta community.</p>
+        </div>
+
+
+        <div class="row gy-5 gx-lg-5">
+
+          <div class="col-lg-5">
+
+            <div class="info">
+              
+              <p>In Makta, we need software developers like you to contribute to the free speech platform.</p>
+              <p>Software developers, designers, content builders, social networkers, digital marketers, project managers, etc. everyone is welcome!</p>
+              <p>Please fill the form below to get your access granted by a community member.</p>
+
+              <div class="info-item">
+                
+                <div>
+                  <p>* If you know someone from community, please mention their name to connect you directly to them.</p>
+                </div>
+              </div><!-- End Info Item -->
+
+            </div>
+
+          </div>
+
+          <div class="col-lg-6">
+            <form action="" method="post" role="form" class="submit-form">
+              <div class="row">
+
+                <div class="form-group">
+                    <p>Name:</p>
+                  <input  type="text" id="joinusname" name="joinusname" class="form-control" placeholder="ex: Makta" required>
+                  
+                </div>
+                </div>
+                <div class="row">
+                <div class="form-group mt-3 mt-md-0">
+                    <p>E-mail:</p>
+                  <input type="email" class="form-control" name="joinusemail" id="joinusemail" placeholder="ex: youremail@makta.com" required>
+                </div>
+              </div>
+
+              <div class="row">
+              <div class="form-group">
+                  <p>Phone:</p>
+                <input type="text" class="form-control" name="joinusphon" id="joinusphone" placeholder="ex: 2261236789" required>
+              </div>
+              </div>
+
+              <div class="row">
+              <div class="col-md-6 form-group mt-3 mt-md-0">
+                  <p>Country:</p>
+                  <select name="country" id="country" class="flag-text"></select>
+              </div>
+              
+                   
+                   
+                    <div class="col-md-6  form-group mt-3 mt-md-0">
+                        <p>Role:</p>
+                        <select name="joinusrole" id="joinusrole">
+                            <option value="softwaredeveloper">Software Developer</option>
+                            <option value="Designer">Designer</option>
+                            <option value="UI/UX">UI/UX</option>
+                            <option value="SoftwareQA&Tester">Software QA & Tester</option>
+                            <option value="ProjectManager">Project Manager</option>
+                            <option value="ScrumMaster">Scrum Master</option>
+                            <option value="DigitalMarketing">Digital Marketing</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+              </div>
+
+              <div class="my-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                @*<div class="sent-message">Your message has been sent. Thank you!</div>*@
+              </div>
+              <div class=""><button type="submit">Submit</button></div>
+
+              <div class="row">
+                    <div class="col">
+                        <input type="checkbox" id="joinusterms" name="joinusterms" />
+                        <label for="joinusterms">I accept Makta community's terms and conditions.</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <input type="button" onclick="SubmitJoinUsForm();return false;" value="Submit">
+                        <label name="lbljoinusresult" id="lbljoinusresult" style="color:white"></label>
+                    </div>
+                </div>
+            </form>
+          </div><!-- End joinus Form -->
+
+        </div>
+
+      </div></div>
     </section>
+
+
 </main>
 
 @section Scripts
@@ -169,4 +276,7 @@
             });
         }
     </script>
+
+    
+    <script src="~/assets/js/Country.js"></script>
 }
