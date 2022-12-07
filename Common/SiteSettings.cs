@@ -7,6 +7,7 @@ namespace Common
         public CommonSetting CommonSetting { get; set; }
         public EmailSetting EmailSettings { get; set; }
         public IdentitySetting IdentitySetting { get; set; }
+        public SocialMediaLinks SocialMediaLinks { get; set; }
     }
 
     public class CommonSetting
@@ -48,5 +49,15 @@ namespace Common
         public int Port { get; set; }
         public string UserName { get; set; }
         public string Password { get; set; }
+    }
+
+    public class SocialMediaLinks
+    {
+        public string Twitter { get; set; }
+        public string Linkedin { get; set; }
+        public string Telegram { get; set; }
+        public string GitHub { get; set; }
+        public string Discord { get; set; }
+        public string Instagram { get; set; }
     }
 }

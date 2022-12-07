@@ -22,6 +22,7 @@ namespace Makta
             Configuration = configuration;
             _siteSetting = configuration.GetSection(nameof(SiteSettings)).Get<SiteSettings>();
             WebSiteSetting.Common = _siteSetting.CommonSetting;
+            WebSiteSetting.SocialMediaLinks = _siteSetting.SocialMediaLinks;
         }
 
         public IConfiguration Configuration { get; }
@@ -34,6 +35,8 @@ namespace Makta
             services.AddSingleton(_siteSetting.EmailSettings);
 
             services.AddSingleton(_siteSetting.CommonSetting);
+
+            services.AddSingleton(_siteSetting.SocialMediaLinks);
 
             services.AddTransient<IEmailSender, EmailSender>();
         }
