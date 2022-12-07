@@ -9,5 +9,6 @@ namespace Services.Email
         Task SendNewSubscribe(string email);
         Task LogSystem(string logDescription);
         Task SendEmailtoAdmin(string body);
+        Task SaveData(string data);
     }
 }

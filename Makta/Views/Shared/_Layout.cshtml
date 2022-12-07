@@ -32,7 +32,7 @@
 
     <!-- Template Main CSS File -->
     <link href="~/assets/css/main.css" rel="stylesheet">
- 
+
 
 
 </head>
@@ -98,7 +98,7 @@
                         <p>Be the first one who gets notified about events, releases, and more!</p>
                         <form action="" method="post">
                             <input type="email" name="email" id="email"><input type="button" onclick="Subscribe();return false;" value="Subscribe">
-                            
+
 
                         </form><label name="lblresult" id="lblresult" style="color:white"></label>
                     </div>
@@ -118,13 +118,35 @@
                 </div>
 
                 <div class="social-links order-first order-lg-last mb-3 mb-lg-0">
-                    <a target="_blank" href="https://twitter.com/makta_org" class="twitter"><i class="bi bi-twitter"></i></a>
-                    <a target="_blank" href="https://www.linkedin.com/in/makta/" class="linkedin"><i class="bi bi-linkedin"></i></a>
-                    <a target="_blank" href="https://t.me/+pCbsfL72sxowNjgx" class="telegram"><i class="bi bi-telegram"></i></a>
-                    @*<a target="_blank" href="instagram" class="instagram"><i class="bi bi-instagram"></i></a>
-                    <a target="_blank" href="discord" class="discord"><i class="bi bi-discord"></i></a>*@
-                    <a target="_blank" href="https://github.com/makta-org" class="github"><i class="bi bi-github"></i></a>
+                    @if (!string.IsNullOrEmpty(WebSiteSetting.SocialMediaLinks.Twitter))
+                    {
+                        <a target="_blank" href="@WebSiteSetting.SocialMediaLinks.Twitter" class="twitter"><i class="bi bi-twitter"></i></a>
+                    }
 
+                    @if (!string.IsNullOrEmpty(WebSiteSetting.SocialMediaLinks.Linkedin))
+                    {
+                        <a target="_blank" href="@WebSiteSetting.SocialMediaLinks.Linkedin" class="linkedin"><i class="bi bi-linkedin"></i></a>
+                    }
+
+                    @if (!string.IsNullOrEmpty(WebSiteSetting.SocialMediaLinks.Telegram))
+                    {
+                        <a target="_blank" href="@WebSiteSetting.SocialMediaLinks.Telegram" class="telegram"><i class="bi bi-telegram"></i></a>
+                    }
+
+                    @if (!string.IsNullOrEmpty(WebSiteSetting.SocialMediaLinks.Instagram))
+                    {
+                        <a target="_blank" href="@WebSiteSetting.SocialMediaLinks.Instagram" class="instagram"><i class="bi bi-instagram"></i></a>
+                    }
+
+                    @if (!string.IsNullOrEmpty(WebSiteSetting.SocialMediaLinks.Discord))
+                    {
+                        <a target="_blank" href="@WebSiteSetting.SocialMediaLinks.Discord" class="discord"><i class="bi bi-discord"></i></a>
+                    }
+
+                    @if (!string.IsNullOrEmpty(WebSiteSetting.SocialMediaLinks.GitHub))
+                    {
+                        <a target="_blank" href="@WebSiteSetting.SocialMediaLinks.GitHub" class="github"><i class="bi bi-github"></i></a>
+                    }
                 </div>
 
             </div>

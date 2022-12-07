@@ -60,6 +60,9 @@ namespace Makta.Controllers
                     return new JsonResult("Please enter a valid email address.");
 
                 _emailSender.SendNewSubscribe(email);
+
+                _emailSender.SaveData($"subscribe - {email}");
+
                 return new JsonResult("You are in! Thanks for being a part of Makta community.");
             }
             catch (Exception ex)
@@ -89,6 +92,8 @@ namespace Makta.Controllers
                     return new JsonResult(new ReturnClass { Description = "Please enter a valid email address.", IsSucceed = false, ButtonText = "ok let me check!" });
 
                 _emailSender.SendEmailtoAdmin(data);
+
+                _emailSender.SaveData($"joinus - {data}");
                 return new JsonResult(new ReturnClass { Description = "Thanks for being a part of Makta community. A community member will process your request and will contact you no more than 2 business days.", IsSucceed = true, ButtonText = "Cool, thanks!" });
             }
             catch (Exception ex)

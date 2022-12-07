@@ -166,5 +166,10 @@ namespace Services.Email
                 throw;
             }
         }
+
+        public async Task SaveData(string data)
+        {
+            await File.AppendAllTextAsync(BaseFullLogPath + "\\requests.txt", DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss") + " - " + data + Environment.NewLine);
+        }
     }
 }
