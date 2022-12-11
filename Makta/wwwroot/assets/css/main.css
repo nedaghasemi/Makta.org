@@ -301,6 +301,20 @@ section {
         font: bold 16px arial;
     }
 
+.golden-fullscreen .doc-btn {
+    color: white;
+    font: bold 15px arial;
+    display: inline-block;
+    padding: 12px 40px;
+    transition: 0.5s;
+    margin-top: 10px;
+}
+
+    .golden-fullscreen .doc-btn:hover {
+        color: white;
+        font: bold 17px arial;
+    }
+
 @media (max-width: 1279px) {
     .header .btn-EN, .header .btn-EN:focus {
         margin-right: 50px;
@@ -509,7 +523,7 @@ section {
             inset: 0;
             padding: 10px 0;
             margin: 0;
-            background: rgba(var(--color-secondary-rgb), 0.9);
+            background: rgba(var(--color-black-rgb), 0.9);
             overflow-y: auto;
             transition: 0.3s;
             z-index: 9998;
@@ -539,7 +553,7 @@ section {
             .navbar .active,
             .navbar .active:focus,
             .navbar li:hover > a {
-                color: var(--color-white);
+                color: var(--color-primary-light);
             }
 
         .navbar .dropdown ul,
@@ -1666,91 +1680,91 @@ section {
         padding-bottom: 8px;
     }
 
-        .required {
-            color: indianred;
-        }
+.required {
+    color: indianred;
+}
 
-    .joinus .submit-form .error-message {
-        display: none;
-        color: var(--color-white);
-        background: var(--color-red);
-        text-align: left;
-        padding: 15px;
-        font-weight: 600;
+.joinus .submit-form .error-message {
+    display: none;
+    color: var(--color-white);
+    background: var(--color-red);
+    text-align: left;
+    padding: 15px;
+    font-weight: 600;
+}
+
+    .joinus .submit-form .error-message br + br {
+        margin-top: 25px;
     }
 
-        .joinus .submit-form .error-message br + br {
-            margin-top: 25px;
-        }
+.joinus .submit-form .sent-message {
+    display: none;
+    color: var(--color-white);
+    background: var(--color-green);
+    text-align: center;
+    padding: 15px;
+    font-weight: 600;
+}
 
-    .joinus .submit-form .sent-message {
-        display: none;
-        color: var(--color-white);
-        background: var(--color-green);
-        text-align: center;
-        padding: 15px;
-        font-weight: 600;
+.joinus .submit-form .loading {
+    display: none;
+    background: var(--color-white);
+    text-align: center;
+    padding: 15px;
+}
+
+    .joinus .submit-form .loading:before {
+        content: "";
+        display: inline-block;
+        border-radius: 50%;
+        width: 24px;
+        height: 24px;
+        margin: 0 10px -6px 0;
+        border: 3px solid var(--color-green);
+        border-top-color: var(--color-white);
+        -webkit-animation: animate-loading 1s linear infinite;
+        animation: animate-loading 1s linear infinite;
     }
 
-    .joinus .submit-form .loading {
-        display: none;
-        background: var(--color-white);
-        text-align: center;
-        padding: 15px;
-    }
+.joinus .submit-form input[type=text],
+.joinus .submit-form input[type=email],
+.joinus .submit-form select {
+    border-radius: 5px;
+    box-shadow: none;
+    font-size: 14px;
+}
 
-        .joinus .submit-form .loading:before {
-            content: "";
-            display: inline-block;
-            border-radius: 50%;
-            width: 24px;
-            height: 24px;
-            margin: 0 10px -6px 0;
-            border: 3px solid var(--color-green);
-            border-top-color: var(--color-white);
-            -webkit-animation: animate-loading 1s linear infinite;
-            animation: animate-loading 1s linear infinite;
-        }
-
-    .joinus .submit-form input[type=text],
-    .joinus .submit-form input[type=email],
+    .joinus .submit-form input[type=text]:focus,
+    .joinus .submit-form input[type=email]:focus,
     .joinus .submit-form select {
-        border-radius: 5px;
-        box-shadow: none;
-        font-size: 14px;
+        border-color: var(--color-secondary-light);
     }
 
-        .joinus .submit-form input[type=text]:focus,
-        .joinus .submit-form input[type=email]:focus,
-        .joinus .submit-form select {
-            border-color: var(--color-secondary-light);
-        }
-
-    .joinus .submit-form input[type=text],
-    .joinus .submit-form input[type=email],
-    .joinus .submit-form select {
-        height: 36px;
-        padding-left: 10px;
-        width: 100%;
-    }
+.joinus .submit-form input[type=text],
+.joinus .submit-form input[type=email],
+.joinus .submit-form select {
+    height: 36px;
+    padding-left: 10px;
+    width: 100%;
+}
 
 
-    .joinus .submit-form button[type=submit] {
-        background: var(--color-primary);
-        border: 0;
-        padding: 13px 50px;
-        color: var(--color-white);
-        transition: 0.4s;
-        border-radius: 0;
-        border-radius: 5px;
+.joinus .submit-form button[type=submit] {
+    background: var(--color-primary);
+    border: 0;
+    padding: 13px 50px;
+    color: var(--color-white);
+    transition: 0.4s;
+    border-radius: 0;
+    border-radius: 5px;
+    font: bold 16px arial;
+}
+
+    .joinus .submit-form button[type=submit]:hover {
+        background: rgba(var(--color-primary-rgb), 0.85);
+        color: black;
         font: bold 16px arial;
     }
-
-        .joinus .submit-form button[type=submit]:hover {
-            background: rgba(var(--color-primary-rgb), 0.85);
-            color: black;
-            font: bold 16px arial;
-        }
 
 
 .flag-text {
