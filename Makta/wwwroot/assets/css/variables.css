@@ -12,16 +12,16 @@
     --color-links: #0ea2bd;
     --color-links-hover: #1ec3e0;
     /* Primay colors */
-    --color-primary: #ffbb38; /*changed*/
-    --color-primary-light: #FFD584; /*changed*/
-    --color-primary-dark: #DEA806; /*changed*/
+    --color-primary: #ffbb38; 
+    --color-primary-light: #FFD584; 
+    --color-primary-dark: #DEA806; 
     --color-primary-rgb: 255, 187, 56; /* #ffbb38 */
-    --color-primary-light-rgb: 255, 213, 132; /* # */
-    --color-primary-dark-rgb: 222, 168, 6; /* # */
+    --color-primary-light-rgb: 255, 213, 132; 
+    --color-primary-dark-rgb: 222, 168, 6; 
     /* Secondary colors */
-    --color-secondary: #EBEBEB; /*changed*/
+    --color-secondary: #EBEBEB; 
     --color-secondary-light: #8f9fae;
-    --color-secondary-dark: #151515; /*changed*/
+    --color-secondary-dark: #151515; 
     --color-secondary-rgb: 235, 235, 235; /*#EBEBEB*/
     --color-secondary-light-rgb: 143, 159, 174;
     --color-secondary-dark-rgb: 21, 21, 21;
